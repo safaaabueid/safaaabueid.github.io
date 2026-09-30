@@ -11,26 +11,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding-top: 60px;
+    justify-content: center;
     color: white;
     text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
   }
-  h1 { font-size: 42px; letter-spacing: 4px; margin-bottom: 30px; }
-  nav { display: flex; gap: 30px; font-size: 18px; position: relative; }
-  nav a { color: white; text-decoration: none; }
-  nav a:hover { text-decoration: underline; }
+  h1 { font-size: 42px; letter-spacing: 10px; margin-bottom: 30px; font-weight: normal; }
+  nav { display: flex; gap: 30px; font-size: 16px; letter-spacing: 2px; margin-bottom: 40px; position: relative; }
+  nav a { color: white; text-decoration: none; text-transform: uppercase; }
+  nav a:hover { opacity: 0.7; }
   .dropdown { position: relative; }
   .dropdown-content {
     display: none;
     position: absolute;
-    top: 30px; left: 0;
+    top: 26px; left: 0;
     background: rgba(0,0,0,0.85);
     padding: 10px 20px;
     min-width: 120px;
   }
   .dropdown:hover .dropdown-content { display: block; }
   .dropdown-content a { display: block; padding: 6px 0; }
+  .social { display: flex; gap: 16px; }
+  .social a {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .social svg { width: 18px; height: 18px; }
 </style>
 </head>
 <body>
@@ -50,30 +57,30 @@
       <a href="info.html">Info</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <div class="social">
+      <a href="https://www.instagram.com/safaayabueid" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1"/>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/safaa-abueid-3948b61b2/" target="_blank">
+        <svg viewBox="0 0 24 24" fill="#111">
+          <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.05c.53-1 1.83-2.1 3.77-2.1 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/>
+        </svg>
+      </a>
+      <a href="https://www.behance.net/safayabueid" target="_blank">
+        <svg viewBox="0 0 24 24">
+          <text x="1" y="17" font-size="14" fill="#111" font-family="Georgia, serif">Be</text>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/safi.a.eid" target="_blank">
+        <svg viewBox="0 0 24 24" fill="#111">
+          <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 15.95 2 14.66 2 11.98 2 10 3.66 10 6.7v2.8H7v4h3V22h4v-8.5z"/>
+        </svg>
+      </a>
+    </div>
   </div>
- <div style="text-align:center; padding:30px; background:#111;">
-  <a href="https://www.instagram.com/safaayabueid" style="margin:0 12px;" target="_blank">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-      <rect x="2" y="2" width="20" height="20" rx="5"/>
-      <circle cx="12" cy="12" r="5"/>
-      <circle cx="17.5" cy="6.5" r="1"/>
-    </svg>
-  </a>
-  <a href="https://www.linkedin.com/in/safaa-abueid-3948b61b2/" style="margin:0 12px;" target="_blank">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
-      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.1h.05c.53-1 1.83-2.1 3.77-2.1 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/>
-    </svg>
-  </a>
-  <a href="https://www.behance.net/safayabueid" style="margin:0 12px;" target="_blank">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-      <text x="2" y="17" font-size="14" fill="white" stroke="none" font-family="Georgia, serif">Be</text>
-    </svg>
-  </a>
-  <a href="https://www.facebook.com/safi.a.eid" style="margin:0 12px;" target="_blank">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
-      <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 15.95 2 14.66 2 11.98 2 10 3.66 10 6.7v2.8H7v4h3V22h4v-8.5z"/>
-    </svg>
-  </a>
-</div>
 </body>
 </html>
