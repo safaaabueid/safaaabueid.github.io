@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Safaa Abu Eid - Visual Artist</title>
+<meta charset="UTF-8">
+<title>Safaa Abueid - Visual Artist</title>
+<style>
+  body { margin: 0; font-family: Georgia, serif; }
+  .hero {
+    background: url('images/ward-aldahnoun.jpg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+    color: white;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+  }
+  h1 { font-size: 42px; letter-spacing: 4px; margin-bottom: 30px; }
+  nav { display: flex; gap: 30px; font-size: 18px; position: relative; }
+  nav a { color: white; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  .dropdown { position: relative; }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 30px; left: 0;
+    background: rgba(0,0,0,0.85);
+    padding: 10px 20px;
+    min-width: 120px;
+  }
+  .dropdown:hover .dropdown-content { display: block; }
+  .dropdown-content a { display: block; padding: 6px 0; }
+</style>
 </head>
 <body>
-  <h1>Welcome to my website</h1>
-  <p>My artwork will be displayed here soon</p>
+  <div class="hero">
+    <h1>SAFAA ABUEID</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="#">Painting ▾</a>
+        <div class="dropdown-content">
+          <a href="political.html">Political</a>
+          <a href="portrait.html">Portrait</a>
+          <a href="other.html">Other</a>
+        </div>
+      </div>
+      <a href="digital-art.html">Digital Art</a>
+      <a href="info.html">Info</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </body>
 </html>
