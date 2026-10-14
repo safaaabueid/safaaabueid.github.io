@@ -1,1 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Political — Safaa Abueid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Poppins', sans-serif; background: #fff; color: #222; }
 
+  /* ---------- الهيدر ---------- */
+  header { text-align: center; padding: 40px 20px 20px; }
+  header .name { font-size: 22px; letter-spacing: 6px; font-weight: 500; color: #222; text-decoration: none; display: inline-block; margin-bottom: 30px; }
+  nav ul { list-style: none; display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
+  nav a { text-decoration: none; color: #222; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
+  nav a:hover, nav a.active { border-bottom: 1px solid #222; }
+
+  /* القائمة المنسدلة */
+  .dropdown { position: relative; }
+  .dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; padding: 14px 24px; min-width: 150px; box-shadow: 0 4px 16px rgba(0,0,0,.12); z-index: 10; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu li { margin: 8px 0; text-align: center; }
+
+  /* ---------- العنوان ---------- */
+  h1 { text-align: center; font-weight: 300; font-size: 28px; letter-spacing: 4px; text-transform: uppercase; margin: 40px 0 40px; }
+
+  /* ---------- الجاليري ---------- */
+  .gallery { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px 30px; }
+  .item img { width: 100%; height: auto; display: block; }
+  .caption { margin-top: 12px; text-align: center; font-size: 13px; line-height: 1.7; }
+  .caption .ar { direction: rtl; font-size: 15px; font-weight: 500; }
+  .caption .en { color: #555; }
+  .caption .year { color: #999; font-size: 12px; }
+
+  footer { text-align: center; padding: 30px; font-size: 12px; color: #999; border-top: 1px solid #eee; }
+
+  @media (max-width: 600px) {
+    nav ul { gap: 20px; }
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="name" href="index.html">SAFAA ABUEID</a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="active">Painting ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="political.html">Political</a></li>
+          <li><a href="portrait.html">Portrait</a></li>
+          <li><a href="other.html">Other</a></li>
+        </ul>
+      </li>
+      <li><a href="digital-art.html">Digital Art</a></li>
+      <li><a href="info.html">Info</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<h1>Political</h1>
+
+<main class="gallery">
+
+  <div class="item">
+    <img src="images/أهداف%20الخوارزميات.jpg" alt="The aims of Algorithms">
+    <div class="caption">
+      <div class="ar">أهداف الخوارزميات</div>
+      <div class="en">The aims of Algorithms</div>
+      <div class="year">2025</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/استقبال%20الشهيد.jpg" alt="Receiving the Martyr">
+    <div class="caption">
+      <div class="ar">استقبال الشهيد</div>
+      <div class="en">Receiving the Martyr</div>
+      <div class="year">2024</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/الجميع%20مستهدف.jpg" alt="Everyone is a target">
+    <div class="caption">
+      <div class="ar">الجميع مستهدف</div>
+      <div class="en">Everyone is a target</div>
+      <div class="year">2024</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/الحاضنة%20الشعبية.jpg" alt="The Peoples Embrace">
+    <div class="caption">
+      <div class="ar">الحاضنة الشعبية</div>
+      <div class="en">The Peoples Embrace</div>
+      <div class="year">2025</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/الخذلان.jpg" alt="The betrayal">
+    <div class="caption">
+      <div class="ar">الخذلان</div>
+      <div class="en">The betrayal</div>
+      <div class="year">2024</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/العار.jpg" alt="The shame">
+    <div class="caption">
+      <div class="ar">العار</div>
+      <div class="en">The shame</div>
+      <div class="year">2024</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/العالم%20الحر.jpg" alt="The Free World">
+    <div class="caption">
+      <div class="ar">العالم الحر</div>
+      <div class="en">The Free World</div>
+      <div class="year">2024</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/العنيطي.jpg" alt="محمد بيك الحنيطي">
+    <div class="caption">
+      <div class="ar">محمد بيك الحنيطي</div>
+      <div class="year">2025</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/مساعدة%20انسانية.jpg" alt="Humanitarian Aid">
+    <div class="caption">
+      <div class="ar">مساعدة إنسانية</div>
+      <div class="en">Humanitarian Aid</div>
+      <div class="year">2025</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/غزة%20بعد%20الابادة.jpg" alt="Gaza after the Genocide">
+    <div class="caption">
+      <div class="ar">غزة ما بعد الإبادة</div>
+      <div class="en">Gaza after the Genocide</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/رفاق%20الوجع%20والفقد.jpg" alt="Companions of pain and loss">
+    <div class="caption">
+      <div class="ar">رفاق الوجع والفقد</div>
+      <div class="en">Companions of pain and loss</div>
+      <div class="year">2024</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/نساء%20غزة.jpg" alt="Gazas Women">
+    <div class="caption">
+      <div class="ar">نساء غزة</div>
+      <div class="en">Gazas Women</div>
+      <div class="year">2025</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>© 2026 Safaa Abueid</footer>
+
+</body>
+</html>
