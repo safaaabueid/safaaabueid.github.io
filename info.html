@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Info — Safaa Abueid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Poppins', sans-serif; background: #fff; color: #222; }
 
+  header { text-align: center; padding: 40px 20px 20px; }
+  header .name { font-size: 22px; letter-spacing: 6px; font-weight: 500; color: #222; text-decoration: none; display: inline-block; margin-bottom: 30px; }
+  nav ul { list-style: none; display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
+  nav a { text-decoration: none; color: #222; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
+  nav a:hover, nav a.active { border-bottom: 1px solid #222; }
+
+  .dropdown { position: relative; }
+  .dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; padding: 14px 24px; min-width: 150px; box-shadow: 0 4px 16px rgba(0,0,0,.12); z-index: 10; }
+  .dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu li { margin: 8px 0; text-align: center; }
+
+  /* ---------- محتوى Info ---------- */
+  .info { max-width: 1100px; margin: 50px auto 80px; padding: 0 24px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: start; }
+  h1 { font-size: 28px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; }
+  h2 { font-size: 24px; font-weight: 500; margin: 50px 0 20px; }
+  h3 { font-size: 16px; font-weight: 500; margin: 24px 0 14px; }
+  p { font-size: 15px; line-height: 1.9; font-weight: 300; }
+  ul.list { list-style: none; }
+  ul.list li { font-size: 14px; line-height: 1.8; font-weight: 300; margin-bottom: 14px; padding-left: 14px; position: relative; }
+  ul.list li::before { content: "·"; position: absolute; left: 0; }
+
+  .side h3.contact-title { margin-top: 0; font-size: 16px; font-weight: 500; }
+  .side .contact-links { margin: 16px 0 30px; font-size: 15px; line-height: 2; font-weight: 300; }
+  .side .contact-links a { color: #222; text-decoration: none; }
+  .side .contact-links a:hover { text-decoration: underline; }
+  .side img { width: 100%; height: auto; display: block; }
+
+  footer { text-align: center; padding: 30px; font-size: 12px; color: #999; border-top: 1px solid #eee; }
+
+  @media (max-width: 800px) {
+    nav ul { gap: 20px; }
+    .info { grid-template-columns: 1fr; gap: 40px; }
+    .side { order: -1; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="name" href="index.html">SAFAA ABUEID</a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Painting ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="political.html">Political</a></li>
+          <li><a href="portrait.html">Portrait</a></li>
+          <li><a href="other.html">Other</a></li>
+        </ul>
+      </li>
+      <li><a href="digital-art.html">Digital Art</a></li>
+      <li><a href="info.html" class="active">Info</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="info">
+
+  <section class="text">
+    <h1>About</h1>
+    <p>Safaa Abueid is a Jordanian-Palestinian visual artist working across oil painting, drawing, and digital mediums to explore identity and cultural memory in Bilad Al-Sham.</p>
+
+    <h2>Exhibitions</h2>
+    <h3>Group</h3>
+    <ul class="list">
+      <li>“7*7 young artists 2025”, CAB Art Gallery, (2025)</li>
+      <li>“The Light at the End: A Collective Exploration of Human Perseverance”, Foresight32 Art Gallery, (2023).</li>
+      <li>“Nabdat Arabiya to Syria”, Foresight32 Art Gallery, (2023)</li>
+      <li>“Annual Architecture and Arts College Exhibition”, The University of Petra, (2022).</li>
+    </ul>
+  </section>
+
+  <aside class="side">
+    <h3 class="contact-title">Contact</h3>
+    <div class="contact-links">
+      <a href="mailto:safayabueid@gmail.com">safayabueid@gmail.com</a><br>
+      <a href="tel:+962795177827">00962795177827</a>
+    </div>
+    <img src="images/IMG_3521.JPG" alt="Safaa Abueid">
+  </aside>
+
+</main>
+
+<footer>© 2026 Safaa Abueid</footer>
+
+</body>
+</html>
