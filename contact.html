@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Other — Safaa Abueid</title>
+<title>Contact — Safaa Abueid</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
@@ -22,40 +22,27 @@
   .dropdown:hover .dropdown-menu { display: block; }
   .dropdown-menu li { margin: 8px 0; text-align: center; }
 
+  /* ---------- الفورم ---------- */
   h1 { text-align: center; font-weight: 300; font-size: 28px; letter-spacing: 4px; text-transform: uppercase; margin: 40px 0 40px; }
-
-  .gallery { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px 30px; }
-  .item { cursor: pointer; }
-  .thumb { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f2f2f2; }
-  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
-  .item:hover .thumb img { transform: scale(1.04); }
-  .caption { margin-top: 12px; text-align: center; font-size: 13px; line-height: 1.7; }
-  .caption .ar { direction: rtl; font-size: 15px; font-weight: 500; }
-  .caption .en { color: #555; }
-  .caption .year { color: #999; font-size: 12px; }
-
-  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; flex-direction: column; z-index: 100; padding: 20px; }
-  .lightbox.open { display: flex; }
-  .lightbox img { max-width: 100%; max-height: 82vh; object-fit: contain; display: block; }
-  .lb-caption { color: #fff; text-align: center; margin-top: 16px; font-size: 14px; line-height: 1.7; }
-  .lb-caption .ar { direction: rtl; font-size: 17px; font-weight: 500; }
-  .lb-caption .en { color: #ccc; }
-  .lb-caption .year { color: #999; font-size: 12px; }
-  .lb-btn { position: absolute; background: none; border: none; color: #fff; cursor: pointer; font-family: inherit; opacity: .8; }
-  .lb-btn:hover { opacity: 1; }
-  .lb-close { top: 16px; right: 22px; font-size: 38px; line-height: 1; }
-  .lb-prev, .lb-next { top: 50%; transform: translateY(-50%); font-size: 54px; padding: 10px 18px; }
-  .lb-prev { left: 8px; }
-  .lb-next { right: 8px; }
+  form { max-width: 620px; margin: 0 auto 80px; padding: 0 24px; }
+  .group-title { font-size: 15px; font-weight: 500; margin-bottom: 10px; }
+  .row { display: flex; gap: 16px; margin-bottom: 24px; }
+  .field { flex: 1; margin-bottom: 24px; }
+  .row .field { margin-bottom: 0; }
+  label { display: block; font-size: 14px; font-weight: 400; margin-bottom: 8px; }
+  label small { color: #777; font-weight: 300; font-size: 12px; margin-left: 4px; }
+  input, textarea { width: 100%; font-family: inherit; font-size: 15px; padding: 12px; border: 1px solid #222; border-radius: 0; background: #fff; color: #222; }
+  input:focus, textarea:focus { outline: none; border-color: #000; box-shadow: 0 0 0 2px rgba(0,0,0,.12); }
+  textarea { min-height: 160px; resize: vertical; }
+  button { font-family: inherit; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; background: #222; color: #fff; border: none; padding: 14px 40px; cursor: pointer; }
+  button:hover { background: #000; }
+  .hidden { position: absolute; left: -9999px; }
 
   footer { text-align: center; padding: 30px; font-size: 12px; color: #999; border-top: 1px solid #eee; }
 
   @media (max-width: 600px) {
     nav ul { gap: 20px; }
-    .gallery { grid-template-columns: 1fr 1fr; gap: 24px 14px; padding: 0 14px 60px; }
-    .caption .ar { font-size: 13px; }
-    .caption { font-size: 11px; }
-    .lb-prev, .lb-next { font-size: 40px; padding: 10px; }
+    .row { flex-direction: column; gap: 24px; }
   }
 </style>
 </head>
@@ -67,7 +54,7 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li class="dropdown">
-        <a href="#" class="active">Painting ▾</a>
+        <a href="#">Painting ▾</a>
         <ul class="dropdown-menu">
           <li><a href="political.html">Political</a></li>
           <li><a href="portrait.html">Portrait</a></li>
@@ -76,106 +63,44 @@
       </li>
       <li><a href="digital-art.html">Digital Art</a></li>
       <li><a href="info.html">Info</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<h1>Other</h1>
+<h1>Contact</h1>
 
-<main class="gallery">
+<form action="https://formspree.io/f/xvkzyggy" method="POST">
 
-  <div class="item">
-    <div class="thumb"><img src="images/سكون-Silence-2022.jpg" alt="Silence"></div>
-    <div class="caption"><div class="ar">سكون</div><div class="en">Silence</div><div class="year">2022</div></div>
+  <div class="group-title">Name</div>
+  <div class="row">
+    <div class="field">
+      <label for="first">First Name <small>(required)</small></label>
+      <input type="text" id="first" name="first_name" required>
+    </div>
+    <div class="field">
+      <label for="last">Last Name <small>(required)</small></label>
+      <input type="text" id="last" name="last_name" required>
+    </div>
   </div>
 
-  <div class="item">
-    <div class="thumb"><img src="images/زهر%20اللوز-Almond%20Blossom-2025-01.jpg" alt="Almond Blossom 01"></div>
-    <div class="caption"><div class="ar">زهر اللوز 01</div><div class="en">Almond Blossom 01</div><div class="year">2025</div></div>
+  <div class="field">
+    <label for="email">Email <small>(required)</small></label>
+    <input type="email" id="email" name="email" required>
   </div>
 
-  <div class="item">
-    <div class="thumb"><img src="images/زهر%20اللوز-Almond%20Blossom-2025-02.jpg" alt="Almond Blossom 02"></div>
-    <div class="caption"><div class="ar">زهر اللوز 02</div><div class="en">Almond Blossom 02</div><div class="year">2025</div></div>
+  <div class="field">
+    <label for="details">Details <small>(required)</small></label>
+    <textarea id="details" name="message" required></textarea>
   </div>
 
-  <div class="item">
-    <div class="thumb"><img src="images/زهر%20اللوز-Almond%20Blossom-2025-03.jpg" alt="Almond Blossom 03"></div>
-    <div class="caption"><div class="ar">زهر اللوز 03</div><div class="en">Almond Blossom 03</div><div class="year">2025</div></div>
-  </div>
+  <!-- حماية من الرسائل المزعجة -->
+  <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
 
-  <div class="item">
-    <div class="thumb"><img src="images/ورد%20الدحنون-The%20Anemone-2025-01.jpg" alt="The Anemone 01"></div>
-    <div class="caption"><div class="ar">ورد الدحنون 01</div><div class="en">The Anemone 01</div><div class="year">2025</div></div>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="images/ward-aldahnoun.jpg" alt="The Anemone 02"></div>
-    <div class="caption"><div class="ar">ورد الدحنون 02</div><div class="en">The Anemone 02</div></div>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="images/ورد%20الدحنون-The%20Anemone-2025-03.jpg" alt="The Anemone 03"></div>
-    <div class="caption"><div class="ar">ورد الدحنون 03</div><div class="en">The Anemone 03</div><div class="year">2025</div></div>
-  </div>
-
-</main>
-
-<!-- العرض الكامل -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lb-btn lb-close" id="lbClose" aria-label="Close">&times;</button>
-  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
-  <img id="lbImg" src="" alt="">
-  <div class="lb-caption" id="lbCaption"></div>
-  <button class="lb-btn lb-next" id="lbNext" aria-label="Next">&#8250;</button>
-</div>
+  <button type="submit">Send</button>
+</form>
 
 <footer>© 2026 Safaa Abueid</footer>
-
-<script>
-  var items = Array.prototype.slice.call(document.querySelectorAll('.item'));
-  var lb = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lbImg');
-  var lbCap = document.getElementById('lbCaption');
-  var current = 0;
-
-  function show(i) {
-    current = (i + items.length) % items.length;
-    var it = items[current];
-    lbImg.src = it.querySelector('img').getAttribute('src');
-    lbImg.alt = it.querySelector('img').alt;
-    lbCap.innerHTML = it.querySelector('.caption').innerHTML;
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function hide() {
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  items.forEach(function (it, i) { it.addEventListener('click', function () { show(i); }); });
-  document.getElementById('lbClose').addEventListener('click', hide);
-  document.getElementById('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); show(current - 1); });
-  document.getElementById('lbNext').addEventListener('click', function (e) { e.stopPropagation(); show(current + 1); });
-  lb.addEventListener('click', function (e) { if (e.target === lb) hide(); });
-
-  document.addEventListener('keydown', function (e) {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') hide();
-    if (e.key === 'ArrowLeft') show(current - 1);
-    if (e.key === 'ArrowRight') show(current + 1);
-  });
-
-  var startX = null;
-  lb.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
-  lb.addEventListener('touchend', function (e) {
-    if (startX === null) return;
-    var dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) > 50) show(dx < 0 ? current + 1 : current - 1);
-    startX = null;
-  }, { passive: true });
-</script>
 
 </body>
 </html>
