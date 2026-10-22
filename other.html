@@ -24,18 +24,38 @@
 
   h1 { text-align: center; font-weight: 300; font-size: 28px; letter-spacing: 4px; text-transform: uppercase; margin: 40px 0 40px; }
 
-  .gallery { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px 30px; }
-  .item img { width: 100%; height: auto; display: block; }
+  .gallery { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px 30px; }
+  .item { cursor: pointer; }
+  .thumb { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f2f2f2; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+  .item:hover .thumb img { transform: scale(1.04); }
   .caption { margin-top: 12px; text-align: center; font-size: 13px; line-height: 1.7; }
   .caption .ar { direction: rtl; font-size: 15px; font-weight: 500; }
   .caption .en { color: #555; }
   .caption .year { color: #999; font-size: 12px; }
 
+  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; flex-direction: column; z-index: 100; padding: 20px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 82vh; object-fit: contain; display: block; }
+  .lb-caption { color: #fff; text-align: center; margin-top: 16px; font-size: 14px; line-height: 1.7; }
+  .lb-caption .ar { direction: rtl; font-size: 17px; font-weight: 500; }
+  .lb-caption .en { color: #ccc; }
+  .lb-caption .year { color: #999; font-size: 12px; }
+  .lb-btn { position: absolute; background: none; border: none; color: #fff; cursor: pointer; font-family: inherit; opacity: .8; }
+  .lb-btn:hover { opacity: 1; }
+  .lb-close { top: 16px; right: 22px; font-size: 38px; line-height: 1; }
+  .lb-prev, .lb-next { top: 50%; transform: translateY(-50%); font-size: 54px; padding: 10px 18px; }
+  .lb-prev { left: 8px; }
+  .lb-next { right: 8px; }
+
   footer { text-align: center; padding: 30px; font-size: 12px; color: #999; border-top: 1px solid #eee; }
 
   @media (max-width: 600px) {
     nav ul { gap: 20px; }
-    .gallery { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr 1fr; gap: 24px 14px; padding: 0 14px 60px; }
+    .caption .ar { font-size: 13px; }
+    .caption { font-size: 11px; }
+    .lb-prev, .lb-next { font-size: 40px; padding: 10px; }
   }
 </style>
 </head>
@@ -66,43 +86,96 @@
 <main class="gallery">
 
   <div class="item">
-    <img src="images/-Silence-2022سكون.jpg" alt="Silence">
+    <div class="thumb"><img src="images/سكون-Silence-2022.jpg" alt="Silence"></div>
     <div class="caption"><div class="ar">سكون</div><div class="en">Silence</div><div class="year">2022</div></div>
   </div>
 
   <div class="item">
-    <img src="images/زهر%20اللوز-Almond%20Blossom-2025-01.jpg" alt="Almond Blossom 01">
+    <div class="thumb"><img src="images/زهر%20اللوز-Almond%20Blossom-2025-01.jpg" alt="Almond Blossom 01"></div>
     <div class="caption"><div class="ar">زهر اللوز 01</div><div class="en">Almond Blossom 01</div><div class="year">2025</div></div>
   </div>
 
   <div class="item">
-    <img src="images/زهر%20اللوز-Almond%20Blossom-2025-02.jpg" alt="Almond Blossom 02">
+    <div class="thumb"><img src="images/زهر%20اللوز-Almond%20Blossom-2025-02.jpg" alt="Almond Blossom 02"></div>
     <div class="caption"><div class="ar">زهر اللوز 02</div><div class="en">Almond Blossom 02</div><div class="year">2025</div></div>
   </div>
 
   <div class="item">
-    <img src="images/زهر%20اللوز-Almond%20Blossom-2025-03.jpg" alt="Almond Blossom 03">
+    <div class="thumb"><img src="images/زهر%20اللوز-Almond%20Blossom-2025-03.jpg" alt="Almond Blossom 03"></div>
     <div class="caption"><div class="ar">زهر اللوز 03</div><div class="en">Almond Blossom 03</div><div class="year">2025</div></div>
   </div>
 
   <div class="item">
-    <img src="images/ورد%20الدحنون-The%20Anemone-2025-01.jpg" alt="The Anemone 01">
+    <div class="thumb"><img src="images/ورد%20الدحنون-The%20Anemone-2025-01.jpg" alt="The Anemone 01"></div>
     <div class="caption"><div class="ar">ورد الدحنون 01</div><div class="en">The Anemone 01</div><div class="year">2025</div></div>
   </div>
 
   <div class="item">
-    <img src="images/ward-aldahnoun.jpg" alt="The Anemone 02">
+    <div class="thumb"><img src="images/ward-aldahnoun.jpg" alt="The Anemone 02"></div>
     <div class="caption"><div class="ar">ورد الدحنون 02</div><div class="en">The Anemone 02</div></div>
   </div>
 
   <div class="item">
-    <img src="images/ورد%20الدحنون-The%20Anemone-2025-03.jpg" alt="The Anemone 03">
+    <div class="thumb"><img src="images/ورد%20الدحنون-The%20Anemone-2025-03.jpg" alt="The Anemone 03"></div>
     <div class="caption"><div class="ar">ورد الدحنون 03</div><div class="en">The Anemone 03</div><div class="year">2025</div></div>
   </div>
 
 </main>
 
+<!-- العرض الكامل -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-caption" id="lbCaption"></div>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+</div>
+
 <footer>© 2026 Safaa Abueid</footer>
+
+<script>
+  var items = Array.prototype.slice.call(document.querySelectorAll('.item'));
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbCap = document.getElementById('lbCaption');
+  var current = 0;
+
+  function show(i) {
+    current = (i + items.length) % items.length;
+    var it = items[current];
+    lbImg.src = it.querySelector('img').getAttribute('src');
+    lbImg.alt = it.querySelector('img').alt;
+    lbCap.innerHTML = it.querySelector('.caption').innerHTML;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function hide() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  items.forEach(function (it, i) { it.addEventListener('click', function () { show(i); }); });
+  document.getElementById('lbClose').addEventListener('click', hide);
+  document.getElementById('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); show(current - 1); });
+  document.getElementById('lbNext').addEventListener('click', function (e) { e.stopPropagation(); show(current + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) hide(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') hide();
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+
+  var startX = null;
+  lb.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) show(dx < 0 ? current + 1 : current - 1);
+    startX = null;
+  }, { passive: true });
+</script>
 
 </body>
 </html>
