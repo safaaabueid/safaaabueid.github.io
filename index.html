@@ -80,6 +80,11 @@
 
     .social { margin-top: 40px; gap: 14px; }
     .social a { width: 42px; height: 42px; }
+/* تثبيت القائمة: جسر شفاف + تأخير قبل الاختفاء */
+.dropdown-content { display: flex; opacity: 0; visibility: hidden; transition: opacity .25s ease .4s, visibility 0s linear .65s; }
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content { opacity: 1; visibility: visible; transition-delay: 0s; }
+.dropdown::after { content: ""; position: absolute; left: -20px; right: -20px; top: 100%; height: 40px; }
   }
 </style>
 </head>
