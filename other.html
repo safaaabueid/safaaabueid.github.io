@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Other — Safaa Abueid</title>
+<title>Land and Home — Safaa Abueid</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
@@ -18,35 +18,47 @@
   nav a:hover, nav a.active { border-bottom: 1px solid #222; }
 
   .dropdown { position: relative; }
-  .dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; padding: 14px 24px; min-width: 150px; box-shadow: 0 4px 16px rgba(0,0,0,.12); z-index: 10; }
-  .dropdown:hover .dropdown-menu { display: block; }
+  .dropdown-menu { display: block; opacity: 0; visibility: hidden; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; padding: 14px 24px; min-width: 150px; box-shadow: 0 4px 16px rgba(0,0,0,.12); z-index: 10; white-space: nowrap; transition: opacity .25s ease .4s, visibility 0s linear .65s; }
+  .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transition-delay: 0s; }
+  .dropdown::after { content: ""; position: absolute; left: -20px; right: -20px; top: 100%; height: 20px; }
   .dropdown-menu li { margin: 8px 0; text-align: center; }
 
   h1 { text-align: center; font-weight: 300; font-size: 28px; letter-spacing: 4px; text-transform: uppercase; margin: 40px 0 40px; }
 
   .gallery { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px 30px; }
   .item { cursor: pointer; }
-  .thumb { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f2f2f2; }
+  .thumb { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f2f2f2; }
   .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
   .item:hover .thumb img { transform: scale(1.04); }
+  .more { display: none; }
+  .badge { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,.65); color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 20px; letter-spacing: 1px; }
   .caption { margin-top: 12px; text-align: center; font-size: 13px; line-height: 1.7; }
   .caption .ar { direction: rtl; font-size: 15px; font-weight: 500; }
   .caption .en { color: #555; }
   .caption .year { color: #999; font-size: 12px; }
 
-  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; flex-direction: column; z-index: 100; padding: 20px; }
+  /* ---------- العرض الكامل ---------- */
+  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; flex-direction: column; z-index: 100; padding: 20px; overflow-y: auto; }
   .lightbox.open { display: flex; }
-  .lightbox img { max-width: 100%; max-height: 82vh; object-fit: contain; display: block; }
+  .lightbox img { max-width: 100%; max-height: 72vh; object-fit: contain; display: block; }
   .lb-caption { color: #fff; text-align: center; margin-top: 16px; font-size: 14px; line-height: 1.7; }
   .lb-caption .ar { direction: rtl; font-size: 17px; font-weight: 500; }
   .lb-caption .en { color: #ccc; }
   .lb-caption .year { color: #999; font-size: 12px; }
+  .lb-piece { text-align: center; color: #eee; margin-top: 10px; font-size: 14px; line-height: 1.7; }
+  .lb-piece .ar { direction: rtl; font-weight: 500; }
+  .lb-piece .en { color: #bbb; font-size: 13px; }
+  .lb-piece:empty { display: none; }
+  .lb-note { display: inline-block; margin-top: 10px; padding: 4px 14px; border: 1px solid #fff; border-radius: 20px; color: #fff; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+  .lb-note:empty { display: none; }
+  .lb-count { color: #aaa; font-size: 12px; letter-spacing: 2px; margin-top: 10px; }
   .lb-btn { position: absolute; background: none; border: none; color: #fff; cursor: pointer; font-family: inherit; opacity: .8; }
   .lb-btn:hover { opacity: 1; }
   .lb-close { top: 16px; right: 22px; font-size: 38px; line-height: 1; }
-  .lb-prev, .lb-next { top: 50%; transform: translateY(-50%); font-size: 54px; padding: 10px 18px; }
+  .lb-prev, .lb-next { top: 40%; transform: translateY(-50%); font-size: 54px; padding: 10px 18px; }
   .lb-prev { left: 8px; }
   .lb-next { right: 8px; }
+  .lightbox.single .lb-prev, .lightbox.single .lb-next, .lightbox.single .lb-count { display: none; }
 
   footer { text-align: center; padding: 30px; font-size: 12px; color: #999; border-top: 1px solid #eee; }
 
@@ -56,6 +68,7 @@
     .caption .ar { font-size: 13px; }
     .caption { font-size: 11px; }
     .lb-prev, .lb-next { font-size: 40px; padding: 10px; }
+    .lightbox img { max-height: 60vh; }
   }
 </style>
 </head>
@@ -69,9 +82,9 @@
       <li class="dropdown">
         <a href="#" class="active">Painting ▾</a>
         <ul class="dropdown-menu">
-          <li><a href="political.html">Political</a></li>
+          <li><a href="political.html">Visual Testimony</a></li>
           <li><a href="portrait.html">Portrait</a></li>
-          <li><a href="other.html">Other</a></li>
+          <li><a href="other.html">Land and Home</a></li>
         </ul>
       </li>
       <li><a href="digital-art.html">Digital Art</a></li>
@@ -81,54 +94,56 @@
   </nav>
 </header>
 
-<h1>Other</h1>
+<h1>Land and Home</h1>
 
 <main class="gallery">
 
+  <!-- مجموعة زهر اللوز -->
   <div class="item">
-    <div class="thumb"><img src="images
-/-Silence-2022سكون.jpg" alt="Silence"></div>
+    <div class="thumb">
+      <img src="images/زهر%20اللوز-Almond%20Blossom-2025-01.jpg" alt="Almond Blossom 01"
+           data-ar="لوحة زهر اللوز 01" data-en="Almond Blossom 01" data-note="Sold">
+      <div class="more">
+        <img src="images/زهر%20اللوز-Almond%20Blossom-2025-02.jpg" alt="Almond Blossom 02"
+             data-ar="لوحة زهر اللوز 02" data-en="Almond Blossom 02">
+        <img src="images/زهر%20اللوز-Almond%20Blossom-2025-03.jpg" alt="Almond Blossom 03"
+             data-ar="لوحة زهر اللوز 03" data-en="Almond Blossom 03">
+      </div>
+    </div>
+    <div class="caption"><div class="ar">مجموعة زهر اللوز</div><div class="en">Almond Blossom Series</div><div class="year">2025</div></div>
+  </div>
+
+  <!-- مجموعة ورد الدحنون -->
+  <div class="item">
+    <div class="thumb">
+      <img src="images/ورد%20الدحنون-The%20Anemone-2025-01.jpg" alt="The Anemone 01"
+           data-ar="ورد الدحنون 01" data-en="The Anemone 01">
+      <div class="more">
+        <img src="images/ward-aldahnoun.jpg" alt="The Anemone 02"
+             data-ar="ورد الدحنون 02" data-en="The Anemone 02">
+        <img src="images/ورد%20الدحنون-The%20Anemone-2025-03.jpg" alt="The Anemone 03"
+             data-ar="ورد الدحنون 03" data-en="The Anemone 03" data-note="Sold out">
+      </div>
+    </div>
+    <div class="caption"><div class="ar">مجموعة ورد الدحنون</div><div class="en">The Anemone Series</div><div class="year">2025</div></div>
+  </div>
+
+  <!-- سكون -->
+  <div class="item">
+    <div class="thumb"><img src="images/سكون-Silence-2022.jpg" alt="Silence"></div>
     <div class="caption"><div class="ar">سكون</div><div class="en">Silence</div><div class="year">2022</div></div>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="images/زهر%20اللوز-Almond%20Blossom-2025-01.jpg" alt="Almond Blossom 01"></div>
-    <div class="caption"><div class="ar">زهر اللوز 01</div><div class="en">Almond Blossom 01</div><div class="year">2025</div></div>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="images/زهر%20اللوز-Almond%20Blossom-2025-02.jpg" alt="Almond Blossom 02"></div>
-    <div class="caption"><div class="ar">زهر اللوز 02</div><div class="en">Almond Blossom 02</div><div class="year">2025</div></div>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="images/زهر%20اللوز-Almond%20Blossom-2025-03.jpg" alt="Almond Blossom 03"></div>
-    <div class="caption"><div class="ar">زهر اللوز 03</div><div class="en">Almond Blossom 03</div><div class="year">2025</div></div>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="images/ورد%20الدحنون-The%20Anemone-2025-01.jpg" alt="The Anemone 01"></div>
-    <div class="caption"><div class="ar">ورد الدحنون 01</div><div class="en">The Anemone 01</div><div class="year">2025</div></div>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="images/ward-aldahnoun.jpg" alt="The Anemone 02"></div>
-    <div class="caption"><div class="ar">ورد الدحنون 02</div><div class="en">The Anemone 02</div></div>
-  </div>
-
-  <div class="item">
-    <div class="thumb"><img src="images/ورد%20الدحنون-The%20Anemone-2025-03.jpg" alt="The Anemone 03"></div>
-    <div class="caption"><div class="ar">ورد الدحنون 03</div><div class="en">The Anemone 03</div><div class="year">2025</div></div>
   </div>
 
 </main>
 
-<!-- العرض الكامل -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lb-btn lb-close" id="lbClose" aria-label="Close">&times;</button>
   <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
   <img id="lbImg" src="" alt="">
   <div class="lb-caption" id="lbCaption"></div>
+  <div class="lb-piece" id="lbPiece"></div>
+  <div class="lb-note" id="lbNote"></div>
+  <div class="lb-count" id="lbCount"></div>
   <button class="lb-btn lb-next" id="lbNext" aria-label="Next">&#8250;</button>
 </div>
 
@@ -139,33 +154,60 @@
   var lb = document.getElementById('lightbox');
   var lbImg = document.getElementById('lbImg');
   var lbCap = document.getElementById('lbCaption');
-  var current = 0;
+  var lbPiece = document.getElementById('lbPiece');
+  var lbNote = document.getElementById('lbNote');
+  var lbCount = document.getElementById('lbCount');
+  var imgs = [], current = 0;
 
-  function show(i) {
-    current = (i + items.length) % items.length;
-    var it = items[current];
-    lbImg.src = it.querySelector('img').getAttribute('src');
-    lbImg.alt = it.querySelector('img').alt;
+  items.forEach(function (it) {
+    var n = it.querySelectorAll('img').length;
+    if (n > 1) {
+      var b = document.createElement('span');
+      b.className = 'badge';
+      b.textContent = n;
+      it.querySelector('.thumb').appendChild(b);
+    }
+  });
+
+  function render() {
+    var img = imgs[current];
+    lbImg.src = img.getAttribute('src');
+    lbImg.alt = img.alt;
+    lbCount.textContent = (current + 1) + ' / ' + imgs.length;
+    var ar = img.getAttribute('data-ar'), en = img.getAttribute('data-en');
+    lbPiece.innerHTML = ar ? '<div class="ar">' + ar + '</div><div class="en">' + en + '</div>' : '';
+    lbNote.textContent = img.getAttribute('data-note') || '';
+  }
+  function openProject(it) {
+    imgs = Array.prototype.slice.call(it.querySelectorAll('img'));
+    current = 0;
     lbCap.innerHTML = it.querySelector('.caption').innerHTML;
+    lb.classList.toggle('single', imgs.length === 1);
+    render();
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
+  }
+  function step(d) {
+    if (imgs.length < 2) return;
+    current = (current + d + imgs.length) % imgs.length;
+    render();
   }
   function hide() {
     lb.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  items.forEach(function (it, i) { it.addEventListener('click', function () { show(i); }); });
+  items.forEach(function (it) { it.addEventListener('click', function () { openProject(it); }); });
   document.getElementById('lbClose').addEventListener('click', hide);
-  document.getElementById('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); show(current - 1); });
-  document.getElementById('lbNext').addEventListener('click', function (e) { e.stopPropagation(); show(current + 1); });
+  document.getElementById('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); step(-1); });
+  document.getElementById('lbNext').addEventListener('click', function (e) { e.stopPropagation(); step(1); });
   lb.addEventListener('click', function (e) { if (e.target === lb) hide(); });
 
   document.addEventListener('keydown', function (e) {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'Escape') hide();
-    if (e.key === 'ArrowLeft') show(current - 1);
-    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
   });
 
   var startX = null;
@@ -173,7 +215,7 @@
   lb.addEventListener('touchend', function (e) {
     if (startX === null) return;
     var dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) > 50) show(dx < 0 ? current + 1 : current - 1);
+    if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
     startX = null;
   }, { passive: true });
 </script>
