@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Political — Safaa Abueid</title>
+<title>Visual Testimony — Safaa Abueid</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
@@ -22,9 +22,16 @@
   .dropdown:hover .dropdown-menu { display: block; }
   .dropdown-menu li { margin: 8px 0; text-align: center; }
 
-  h1 { text-align: center; font-weight: 300; font-size: 28px; letter-spacing: 4px; text-transform: uppercase; margin: 40px 0 40px; }
+  h1 { text-align: center; font-weight: 300; font-size: 28px; letter-spacing: 4px; text-transform: uppercase; margin: 40px 0 10px; }
+  .h1-ar { text-align: center; direction: rtl; font-size: 20px; font-weight: 400; color: #555; margin-bottom: 36px; }
 
-  /* ---------- الجاليري: كل الصور بنفس الحجم ---------- */
+  /* ---------- نص السلسلة ---------- */
+  .statement { max-width: 760px; margin: 0 auto 60px; padding: 0 24px; }
+  .statement p { font-size: 15px; line-height: 1.95; font-weight: 300; }
+  .statement .en { text-align: left; }
+  .statement .ar { direction: rtl; text-align: right; font-size: 16px; margin-top: 28px; padding-top: 28px; border-top: 1px solid #eee; }
+
+  /* ---------- الجاليري ---------- */
   .gallery { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px 30px; }
   .item { cursor: pointer; }
   .thumb { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f2f2f2; }
@@ -35,7 +42,7 @@
   .caption .en { color: #555; }
   .caption .year { color: #999; font-size: 12px; }
 
-  /* ---------- العرض الكامل (Lightbox) ---------- */
+  /* ---------- العرض الكامل ---------- */
   .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; align-items: center; justify-content: center; flex-direction: column; z-index: 100; padding: 20px; }
   .lightbox.open { display: flex; }
   .lightbox img { max-width: 100%; max-height: 82vh; object-fit: contain; display: block; }
@@ -54,6 +61,7 @@
 
   @media (max-width: 600px) {
     nav ul { gap: 20px; }
+    h1 { font-size: 24px; }
     .gallery { grid-template-columns: 1fr 1fr; gap: 24px 14px; padding: 0 14px 60px; }
     .caption .ar { font-size: 13px; }
     .caption { font-size: 11px; }
@@ -71,7 +79,7 @@
       <li class="dropdown">
         <a href="#" class="active">Painting ▾</a>
         <ul class="dropdown-menu">
-          <li><a href="political.html">Political</a></li>
+          <li><a href="political.html">Visual Testimony</a></li>
           <li><a href="portrait.html">Portrait</a></li>
           <li><a href="other.html">Other</a></li>
         </ul>
@@ -83,7 +91,13 @@
   </nav>
 </header>
 
-<h1>Political</h1>
+<h1>Visual Testimony</h1>
+<div class="h1-ar">شهادة بصرية</div>
+
+<section class="statement">
+  <p class="en">Visual Testimony is a series of oil paintings made in response to the war on Gaza and the world’s reaction to it. Through color, texture, and symbolism, I paint what the news cycle flattens: loss, abandonment, and shame. These works are not documentation but witness, one person’s account of what it means to watch, and to remember.</p>
+  <p class="ar">«شهادة بصرية» هي سلسلة من اللوحات الزيتية التي أنجزتها استجابةً للحرب على غزة وردة فعل العالم تجاهها. عبر اللون، والملمس، والرمزية، أرسم ما يسطّحه شريط الأخبار: الفقدان، والتخلي، والخزي.<br>هذه الأعمال ليست توثيقاً، بل هي شهادة—شهادة شخص واحد عما يعنيه أن تشاهد، وأن تتذكر.</p>
+</section>
 
 <main class="gallery">
 
@@ -123,11 +137,6 @@
   </div>
 
   <div class="item">
-    <div class="thumb"><img src="images/محمد%20بيك%20الحنيطي-2025.jpg" alt="محمد بيك الحنيطي"></div>
-    <div class="caption"><div class="ar">محمد بيك الحنيطي</div><div class="year">2025</div></div>
-  </div>
-
-  <div class="item">
     <div class="thumb"><img src="images/مساعدة%20إنسانية-Humanitarian%20Aid-2025.jpg" alt="Humanitarian Aid"></div>
     <div class="caption"><div class="ar">مساعدة إنسانية</div><div class="en">Humanitarian Aid</div><div class="year">2025</div></div>
   </div>
@@ -149,7 +158,6 @@
 
 </main>
 
-<!-- العرض الكامل -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lb-btn lb-close" id="lbClose" aria-label="Close">&times;</button>
   <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
@@ -194,7 +202,6 @@
     if (e.key === 'ArrowRight') show(current + 1);
   });
 
-  // سحب الإصبع على الموبايل
   var startX = null;
   lb.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
   lb.addEventListener('touchend', function (e) {
